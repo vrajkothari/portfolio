@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 interface InteractiveTextProps {
   text: string;
@@ -7,11 +7,11 @@ interface InteractiveTextProps {
   delay?: number;
 }
 
-export default function InteractiveText({ 
-  text, 
+export default function InteractiveText({
+  text,
   className = '',
   hoverEffect = 'glow',
-  delay = 0
+  delay = 0,
 }: InteractiveTextProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
@@ -24,8 +24,8 @@ export default function InteractiveText({
   const getHoverStyles = () => {
     switch (hoverEffect) {
       case 'glow':
-        return isHovered 
-          ? 'drop-shadow-[0_0_20px_rgba(34,197,94,0.8)]' 
+        return isHovered
+          ? 'drop-shadow-[0_0_20px_rgba(34,197,94,0.8)]'
           : 'drop-shadow-[0_0_10px_rgba(34,197,94,0.4)]';
       case 'scale':
         return isHovered ? 'scale-110' : 'scale-100';
@@ -64,11 +64,11 @@ interface TypewriterTextProps {
   onComplete?: () => void;
 }
 
-export function TypewriterText({ 
-  text, 
+export function TypewriterText({
+  text,
   speed = 100,
   className = '',
-  onComplete
+  onComplete,
 }: TypewriterTextProps) {
   const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -76,8 +76,8 @@ export function TypewriterText({
   useEffect(() => {
     if (currentIndex < text.length) {
       const timeout = setTimeout(() => {
-        setDisplayText(prev => prev + text[currentIndex]);
-        setCurrentIndex(prev => prev + 1);
+        setDisplayText((prev) => prev + text[currentIndex]);
+        setCurrentIndex((prev) => prev + 1);
       }, speed);
 
       return () => clearTimeout(timeout);
@@ -101,11 +101,11 @@ interface MagneticButtonProps {
   onClick?: () => void;
 }
 
-export function MagneticButton({ 
-  children, 
+export function MagneticButton({
+  children,
   className = '',
   strength = 0.3,
-  onClick
+  onClick,
 }: MagneticButtonProps) {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -115,7 +115,7 @@ export function MagneticButton({
       const rect = buttonRef.current.getBoundingClientRect();
       const x = e.clientX - rect.left - rect.width / 2;
       const y = e.clientY - rect.top - rect.height / 2;
-      
+
       setPosition({
         x: x * strength,
         y: y * strength,

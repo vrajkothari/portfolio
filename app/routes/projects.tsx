@@ -1,6 +1,6 @@
+import FloatingCard from '~/components/FloatingCard';
 import { TypewriterText } from '~/components/InteractiveText';
 import { ScrollReveal } from '~/components/ParallaxElement';
-import FloatingCard from '~/components/FloatingCard';
 
 export default function Projects() {
   const projects = [
@@ -150,7 +150,10 @@ export default function Projects() {
           My Projects
         </h1>
         <p className="text-xl text-slate-600 mb-8">
-          <TypewriterText text="A showcase of my work in AI, ML, full-stack development, and more" speed={35} />
+          <TypewriterText
+            text="A showcase of my work in AI, ML, full-stack development, and more"
+            speed={35}
+          />
         </p>
 
         {/* Category Filter */}

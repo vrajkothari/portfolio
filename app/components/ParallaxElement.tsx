@@ -7,11 +7,11 @@ interface ParallaxElementProps {
   className?: string;
 }
 
-export default function ParallaxElement({ 
-  children, 
-  speed = 0.5, 
+export default function ParallaxElement({
+  children,
+  speed = 0.5,
   direction = 'up',
-  className = '' 
+  className = '',
 }: ParallaxElementProps) {
   const [offset, setOffset] = useState(0);
   const elementRef = useRef<HTMLDivElement>(null);
@@ -19,10 +19,9 @@ export default function ParallaxElement({
   useEffect(() => {
     const handleScroll = () => {
       if (elementRef.current) {
-        const rect = elementRef.current.getBoundingClientRect();
         const scrolled = window.pageYOffset;
         const rate = scrolled * -speed;
-        
+
         if (direction === 'up') {
           setOffset(rate);
         } else {
@@ -55,11 +54,11 @@ interface ScrollRevealProps {
   className?: string;
 }
 
-export function ScrollReveal({ 
-  children, 
+export function ScrollReveal({
+  children,
   delay = 0,
   direction = 'up',
-  className = '' 
+  className = '',
 }: ScrollRevealProps) {
   const [isVisible, setIsVisible] = useState(false);
   const elementRef = useRef<HTMLDivElement>(null);
@@ -84,11 +83,16 @@ export function ScrollReveal({
   const getTransform = () => {
     if (!isVisible) {
       switch (direction) {
-        case 'up': return 'translateY(50px)';
-        case 'down': return 'translateY(-50px)';
-        case 'left': return 'translateX(50px)';
-        case 'right': return 'translateX(-50px)';
-        default: return 'translateY(50px)';
+        case 'up':
+          return 'translateY(50px)';
+        case 'down':
+          return 'translateY(-50px)';
+        case 'left':
+          return 'translateX(50px)';
+        case 'right':
+          return 'translateX(-50px)';
+        default:
+          return 'translateY(50px)';
       }
     }
     return 'translateY(0) translateX(0)';

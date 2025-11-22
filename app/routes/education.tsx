@@ -1,6 +1,6 @@
+import FloatingCard from '~/components/FloatingCard';
 import { TypewriterText } from '~/components/InteractiveText';
 import { ScrollReveal } from '~/components/ParallaxElement';
-import FloatingCard from '~/components/FloatingCard';
 
 export default function Education() {
   const education = [
@@ -98,24 +98,24 @@ export default function Education() {
             >
               <FloatingCard className="block">
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-slate-800 mb-2">{edu.degree}</h3>
-                  <div className="text-lg font-semibold text-blue-600 mb-1">
-                    {edu.concentration}
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-slate-800 mb-2">{edu.degree}</h3>
+                    <div className="text-lg font-semibold text-blue-600 mb-1">
+                      {edu.concentration}
+                    </div>
+                    <div className="text-lg font-semibold text-slate-700 mb-1">{edu.school}</div>
+                    <div className="text-slate-600">{edu.location}</div>
                   </div>
-                  <div className="text-lg font-semibold text-slate-700 mb-1">{edu.school}</div>
-                  <div className="text-slate-600">{edu.location}</div>
-                </div>
-                <div className="mt-4 md:mt-0 text-left md:text-right">
-                  <div className="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full font-semibold mb-2">
-                    {edu.period}
+                  <div className="mt-4 md:mt-0 text-left md:text-right">
+                    <div className="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full font-semibold mb-2">
+                      {edu.period}
+                    </div>
+                    <div className="text-slate-600 font-medium">
+                      {edu.gpa.includes('GPA') || edu.gpa.includes('Program')
+                        ? edu.gpa
+                        : `GPA: ${edu.gpa}`}
+                    </div>
                   </div>
-                  <div className="text-slate-600 font-medium">
-                    {edu.gpa.includes('GPA') || edu.gpa.includes('Program')
-                      ? edu.gpa
-                      : `GPA: ${edu.gpa}`}
-                  </div>
-                </div>
                 </div>
 
                 <p className="text-slate-600 mb-4 leading-relaxed">{edu.description}</p>
@@ -190,10 +190,10 @@ export default function Education() {
         <FloatingCard className="block">
           <h2 className="text-3xl font-bold mb-6">Continuous Learning</h2>
           <p className="text-lg opacity-90 mb-6">
-            Beyond formal education, I'm constantly expanding my knowledge through hands-on projects,
-            VIP research, and practical internship experiences. My involvement in Vertically
-            Integrated Projects at Georgia Tech allows me to work on real-world problems like
-            automotive LiDAR systems while building a strong foundation in AI and ML.
+            Beyond formal education, I'm constantly expanding my knowledge through hands-on
+            projects, VIP research, and practical internship experiences. My involvement in
+            Vertically Integrated Projects at Georgia Tech allows me to work on real-world problems
+            like automotive LiDAR systems while building a strong foundation in AI and ML.
           </p>
           <div className="flex flex-wrap gap-3">
             {[
@@ -204,7 +204,10 @@ export default function Education() {
               'Tech Communities',
               'Project-Based Learning',
             ].map((platform) => (
-              <span key={platform} className="px-4 py-2 bg-white/20 backdrop-blur rounded-lg font-medium">
+              <span
+                key={platform}
+                className="px-4 py-2 bg-white/20 backdrop-blur rounded-lg font-medium"
+              >
                 {platform}
               </span>
             ))}

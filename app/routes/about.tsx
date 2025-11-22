@@ -67,7 +67,10 @@ export default function About() {
           </ScrollReveal>
 
           {/* Backend */}
-          <ScrollReveal className="bg-slate-800/50 rounded-xl shadow-lg p-6 border border-slate-700" delay={100}>
+          <ScrollReveal
+            className="bg-slate-800/50 rounded-xl shadow-lg p-6 border border-slate-700"
+            delay={100}
+          >
             <h3 className="text-xl font-bold mb-4 text-emerald-400">Backend Development</h3>
             <div className="flex flex-wrap gap-2">
               {[
@@ -90,7 +93,10 @@ export default function About() {
           </ScrollReveal>
 
           {/* Tools */}
-          <ScrollReveal className="bg-slate-800/50 rounded-xl shadow-lg p-6 border border-slate-700" delay={200}>
+          <ScrollReveal
+            className="bg-slate-800/50 rounded-xl shadow-lg p-6 border border-slate-700"
+            delay={200}
+          >
             <h3 className="text-xl font-bold mb-4 text-teal-400">Tools & Platforms</h3>
             <div className="flex flex-wrap gap-2">
               {[
@@ -114,7 +120,10 @@ export default function About() {
           </ScrollReveal>
 
           {/* Other */}
-          <ScrollReveal className="bg-slate-800/50 rounded-xl shadow-lg p-6 border border-slate-700" delay={300}>
+          <ScrollReveal
+            className="bg-slate-800/50 rounded-xl shadow-lg p-6 border border-slate-700"
+            delay={300}
+          >
             <h3 className="text-xl font-bold mb-4 text-cyan-400">Other Skills</h3>
             <div className="flex flex-wrap gap-2">
               {[

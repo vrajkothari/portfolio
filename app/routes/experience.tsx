@@ -1,7 +1,7 @@
+import FloatingCard from '~/components/FloatingCard';
 import { TypewriterText } from '~/components/InteractiveText';
 import { ScrollReveal } from '~/components/ParallaxElement';
 // duplicate import removed
-import FloatingCard from '~/components/FloatingCard';
 
 export default function Experience() {
   const experiences = [
@@ -102,7 +102,10 @@ export default function Experience() {
               <div className="hidden md:block absolute left-6 w-5 h-5 bg-blue-600 rounded-full border-4 border-white shadow-lg"></div>
 
               {/* Content Card */}
-              <ScrollReveal className="md:ml-20 bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow border border-slate-200" delay={index * 100}>
+              <ScrollReveal
+                className="md:ml-20 bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow border border-slate-200"
+                delay={index * 100}
+              >
                 <FloatingCard className="block">
                   <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4">
                     <div className="flex-1">
@@ -159,7 +162,12 @@ export default function Experience() {
 
       {/* Career Stats */}
       <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
-        {[{v:'4', c:'text-blue-600', l:'Internships'}, {v:'4', c:'text-purple-600', l:'Major Companies'}, {v:'10+', c:'text-pink-600', l:'Technologies'}, {v:'50%', c:'text-indigo-600', l:'Efficiency Gains'}].map((stat, i) => (
+        {[
+          { v: '4', c: 'text-blue-600', l: 'Internships' },
+          { v: '4', c: 'text-purple-600', l: 'Major Companies' },
+          { v: '10+', c: 'text-pink-600', l: 'Technologies' },
+          { v: '50%', c: 'text-indigo-600', l: 'Efficiency Gains' },
+        ].map((stat, i) => (
           <ScrollReveal key={stat.l} delay={i * 100}>
             <FloatingCard className="bg-white rounded-xl shadow-md p-6 text-center border border-slate-200">
               <div className={`text-3xl font-bold ${stat.c} mb-2`}>{stat.v}</div>

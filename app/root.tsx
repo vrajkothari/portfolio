@@ -8,8 +8,9 @@ import {
   ScrollRestoration,
 } from '@remix-run/react';
 
-import styles from './css/index.css?url';
 import AnimatedBackground from '~/components/AnimatedBackground';
+
+import styles from './css/index.css?url';
 
 export function links() {
   return [

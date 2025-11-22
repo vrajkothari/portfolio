@@ -12,7 +12,7 @@ interface FloatingElement {
 
 export default function AnimatedBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | undefined>(undefined);
   const elementsRef = useRef<FloatingElement[]>([]);
 
   useEffect(() => {

@@ -1,4 +1,5 @@
 import { Link } from '@remix-run/react';
+
 import { TypewriterText } from '~/components/InteractiveText';
 
 export default function Index() {
