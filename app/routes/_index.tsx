@@ -1,4 +1,5 @@
 import { Link } from '@remix-run/react';
+import { TypewriterText } from '~/components/InteractiveText';
 
 export default function Index() {
   return (
@@ -20,10 +21,13 @@ export default function Index() {
             CS Student at Georgia Tech | SWE Intern @ Shopify
           </p>
 
-          <p className="text-lg text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed">
-            Pursuing BS/MS in Computer Science with a concentration in AI and Machine Learning.
-            Passionate about building impactful software and solving complex problems through code.
-          </p>
+          <div className="text-lg text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+            <TypewriterText
+              text="Pursuing BS/MS in Computer Science with a concentration in AI and Machine Learning. Passionate about building impactful software and solving complex problems through code."
+              speed={28}
+              className="inline-block"
+            />
+          </div>
 
           <div className="flex gap-4 justify-center flex-wrap">
             <Link

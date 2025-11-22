@@ -1,3 +1,7 @@
+import { TypewriterText } from '~/components/InteractiveText';
+import { ScrollReveal } from '~/components/ParallaxElement';
+import FloatingCard from '~/components/FloatingCard';
+
 export default function Projects() {
   const projects = [
     {
@@ -146,7 +150,7 @@ export default function Projects() {
           My Projects
         </h1>
         <p className="text-xl text-slate-600 mb-8">
-          A showcase of my work in AI, ML, full-stack development, and more
+          <TypewriterText text="A showcase of my work in AI, ML, full-stack development, and more" speed={35} />
         </p>
 
         {/* Category Filter */}
@@ -165,93 +169,96 @@ export default function Projects() {
       {/* Projects Grid */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
         {projects.map((project, index) => (
-          <div
+          <ScrollReveal
             key={index}
             className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all hover:-translate-y-1 border border-slate-200"
+            delay={index * 100}
           >
-            {/* Project Image/Icon */}
-            <div className="bg-gradient-to-br from-blue-500 to-purple-600 h-48 flex items-center justify-center text-7xl">
-              {project.image}
-            </div>
-
-            {/* Project Content */}
-            <div className="p-6">
-              <div className="flex items-start justify-between mb-3">
-                <h3 className="text-xl font-bold text-slate-800 flex-1">{project.title}</h3>
-              </div>
-              <div className="flex items-center justify-between mb-3">
-                <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold">
-                  {project.category}
-                </span>
-                <span className="text-xs text-slate-500">{project.timeframe}</span>
+            <FloatingCard className="block">
+              {/* Project Image/Icon */}
+              <div className="bg-gradient-to-br from-blue-500 to-purple-600 h-48 flex items-center justify-center text-7xl">
+                {project.image}
               </div>
 
-              <p className="text-slate-600 mb-4 leading-relaxed text-sm">{project.description}</p>
+              {/* Project Content */}
+              <div className="p-6">
+                <div className="flex items-start justify-between mb-3">
+                  <h3 className="text-xl font-bold text-slate-800 flex-1">{project.title}</h3>
+                </div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold">
+                    {project.category}
+                  </span>
+                  <span className="text-xs text-slate-500">{project.timeframe}</span>
+                </div>
 
-              {/* Technologies */}
-              <div className="mb-4">
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.slice(0, 3).map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-1 bg-slate-100 text-slate-600 rounded text-xs font-medium"
-                    >
-                      {tech}
-                    </span>
+                <p className="text-slate-600 mb-4 leading-relaxed text-sm">{project.description}</p>
+
+                {/* Technologies */}
+                <div className="mb-4">
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.slice(0, 3).map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-2 py-1 bg-slate-100 text-slate-600 rounded text-xs font-medium"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                    {project.technologies.length > 3 && (
+                      <span className="px-2 py-1 bg-slate-100 text-slate-600 rounded text-xs font-medium">
+                        +{project.technologies.length - 3} more
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                {/* Stats */}
+                <div className="flex gap-4 mb-4 text-xs text-slate-600">
+                  {Object.entries(project.stats).map(([key, value]) => (
+                    <div key={key} className="flex items-center gap-1">
+                      <span className="font-semibold">{key}:</span>
+                      <span>{value}</span>
+                    </div>
                   ))}
-                  {project.technologies.length > 3 && (
-                    <span className="px-2 py-1 bg-slate-100 text-slate-600 rounded text-xs font-medium">
-                      +{project.technologies.length - 3} more
-                    </span>
+                </div>
+
+                {/* Links */}
+                <div className="flex gap-3">
+                  {(project as any).links?.live && (
+                    <a
+                      href={(project as any).links.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors text-center text-sm"
+                    >
+                      Live Demo
+                    </a>
+                  )}
+                  {(project as any).links?.github && (
+                    <a
+                      href={(project as any).links.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 px-4 py-2 bg-slate-800 text-white rounded-lg font-medium hover:bg-slate-900 transition-colors text-center text-sm"
+                    >
+                      GitHub
+                    </a>
+                  )}
+                  {!(project as any).links?.github && !(project as any).links?.live && (
+                    <div className="flex-1 px-4 py-2 bg-slate-100 text-slate-600 rounded-lg font-medium text-center text-sm">
+                      Internal Project
+                    </div>
                   )}
                 </div>
               </div>
-
-              {/* Stats */}
-              <div className="flex gap-4 mb-4 text-xs text-slate-600">
-                {Object.entries(project.stats).map(([key, value]) => (
-                  <div key={key} className="flex items-center gap-1">
-                    <span className="font-semibold">{key}:</span>
-                    <span>{value}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Links */}
-              <div className="flex gap-3">
-                {project.links.live && (
-                  <a
-                    href={project.links.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors text-center text-sm"
-                  >
-                    Live Demo
-                  </a>
-                )}
-                {project.links.github && (
-                  <a
-                    href={project.links.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 px-4 py-2 bg-slate-800 text-white rounded-lg font-medium hover:bg-slate-900 transition-colors text-center text-sm"
-                  >
-                    GitHub
-                  </a>
-                )}
-                {!project.links.github && !project.links.live && (
-                  <div className="flex-1 px-4 py-2 bg-slate-100 text-slate-600 rounded-lg font-medium text-center text-sm">
-                    Internal Project
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
+            </FloatingCard>
+          </ScrollReveal>
         ))}
       </div>
 
       {/* Stats Section */}
-      <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12 mb-16 border border-slate-200">
+      <ScrollReveal className="bg-white rounded-2xl shadow-lg p-8 md:p-12 mb-16 border border-slate-200">
         <h2 className="text-3xl font-bold text-center mb-8 text-slate-800">Project Statistics</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           <div className="text-center">
@@ -271,10 +278,10 @@ export default function Projects() {
             <div className="text-slate-600">Technologies</div>
           </div>
         </div>
-      </div>
+      </ScrollReveal>
 
       {/* CTA Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl shadow-lg p-8 md:p-12 text-white text-center">
+      <ScrollReveal className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl shadow-lg p-8 md:p-12 text-white text-center">
         <h2 className="text-3xl font-bold mb-4">Want to Collaborate?</h2>
         <p className="text-lg opacity-90 mb-6">
           I'm always interested in working on exciting projects, especially in AI/ML, robotics, and
@@ -296,7 +303,7 @@ export default function Projects() {
             View GitHub
           </a>
         </div>
-      </div>
+      </ScrollReveal>
     </div>
   );
 }

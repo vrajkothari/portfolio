@@ -9,6 +9,7 @@ import {
 } from '@remix-run/react';
 
 import styles from './css/index.css?url';
+import AnimatedBackground from '~/components/AnimatedBackground';
 
 export function links() {
   return [
@@ -39,7 +40,9 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 min-h-screen">
+      <body className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 min-h-screen relative overflow-x-hidden">
+        {/* Global Animated Background */}
+        <AnimatedBackground />
         {/* Navigation Header */}
         <header className="sticky top-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-700 shadow-lg shadow-cyan-500/10">
           <nav className="max-w-6xl mx-auto px-6 py-4">
@@ -113,7 +116,7 @@ export default function App() {
         </header>
 
         {/* Main Content */}
-        <main className="min-h-screen">
+        <main className="min-h-screen relative z-10">
           <Outlet />
         </main>
 

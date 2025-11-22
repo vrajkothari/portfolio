@@ -1,3 +1,6 @@
+import { TypewriterText } from '~/components/InteractiveText';
+import { ScrollReveal } from '~/components/ParallaxElement';
+
 export default function Personal() {
   const hobbies = [
     {
@@ -35,13 +38,15 @@ export default function Personal() {
         <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">
           Personal Life
         </h1>
-        <p className="text-xl text-slate-400">Beyond the code - my hobbies and passions</p>
+        <p className="text-xl text-slate-400">
+          <TypewriterText text="Beyond the code - my hobbies and passions" speed={35} />
+        </p>
       </div>
 
       {/* Hobbies Grid */}
       <div className="grid md:grid-cols-2 gap-8 mb-16">
         {hobbies.map((hobby, index) => (
-          <div
+          <ScrollReveal
             key={index}
             className="bg-slate-800/50 rounded-2xl shadow-xl overflow-hidden border border-slate-700 hover:border-cyan-500/50 transition-all"
           >
@@ -81,37 +86,37 @@ export default function Personal() {
                 ))}
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         ))}
       </div>
 
       {/* Other Interests */}
-      <div className="bg-gradient-to-r from-cyan-600 to-emerald-600 rounded-2xl shadow-xl p-8 md:p-12">
+      <ScrollReveal className="bg-gradient-to-r from-cyan-600 to-emerald-600 rounded-2xl shadow-xl p-8 md:p-12">
         <h2 className="text-3xl font-bold text-white mb-6">Other Interests & Activities</h2>
         <div className="grid md:grid-cols-3 gap-6">
-          <div className="bg-white/10 backdrop-blur rounded-lg p-6">
+          <ScrollReveal className="bg-white/10 backdrop-blur rounded-lg p-6">
             <div className="text-4xl mb-3">🚁</div>
             <h3 className="text-xl font-bold text-white mb-2">Drones & Flight</h3>
             <p className="text-white/90">
               Member of Drones and Experimental Flight Club, building and flying drones
             </p>
-          </div>
-          <div className="bg-white/10 backdrop-blur rounded-lg p-6">
+          </ScrollReveal>
+          <ScrollReveal className="bg-white/10 backdrop-blur rounded-lg p-6" delay={100}>
             <div className="text-4xl mb-3">🎭</div>
             <h3 className="text-xl font-bold text-white mb-2">Theater Tech</h3>
             <p className="text-white/90">
               Contributing to DramaTech@GT productions through technical theater work
             </p>
-          </div>
-          <div className="bg-white/10 backdrop-blur rounded-lg p-6">
+          </ScrollReveal>
+          <ScrollReveal className="bg-white/10 backdrop-blur rounded-lg p-6" delay={200}>
             <div className="text-4xl mb-3">🎓</div>
             <h3 className="text-xl font-bold text-white mb-2">VIP Research</h3>
             <p className="text-white/90">
               Active member of Vertically Integrated Projects working on LiDAR systems
             </p>
-          </div>
+          </ScrollReveal>
         </div>
-      </div>
+      </ScrollReveal>
 
       {/* Add Your Own Section */}
       <div className="mt-16 bg-slate-800/30 rounded-2xl shadow-lg p-8 border border-slate-700">

@@ -1,14 +1,13 @@
+import { ScrollReveal } from '~/components/ParallaxElement';
+import FloatingCard from '~/components/FloatingCard';
+
 export default function Resume() {
   const handleDownload = () => {
-    // In a real app, this would download a PDF file
-    alert(
-      'To add PDF download: Place your resume PDF in public/resume.pdf and uncomment the download code!'
-    );
-    // Uncomment this when you add your PDF:
-    // const link = document.createElement('a');
-    // link.href = '/resume.pdf';
-    // link.download = 'Vraj_Kothari_Resume.pdf';
-    // link.click();
+
+    const link = document.createElement('a');
+    link.href = '/resume.pdf';
+    link.download = 'Vraj_Kothari_Resume.pdf';
+    link.click();
   };
 
   return (
@@ -31,7 +30,8 @@ export default function Resume() {
       </div>
 
       {/* Resume Content */}
-      <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+      <ScrollReveal>
+        <FloatingCard className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
         {/* Contact Info */}
         <div className="text-center mb-8 pb-8 border-b border-slate-200">
           <h2 className="text-4xl font-bold text-slate-800 mb-2">Vraj Kothari</h2>
@@ -72,7 +72,7 @@ export default function Resume() {
           </h3>
 
           <div className="space-y-4">
-            <div>
+            <ScrollReveal>
               <div className="flex justify-between items-start mb-1">
                 <div>
                   <h4 className="text-lg font-bold text-slate-800">
@@ -94,9 +94,9 @@ export default function Resume() {
                 <strong>Activities:</strong> VIP, GT Climbing Club, Drones and Experimental Flight
                 Club, DramaTech@GT
               </p>
-            </div>
+            </ScrollReveal>
 
-            <div>
+            <ScrollReveal delay={100}>
               <div className="flex justify-between items-start mb-1">
                 <div>
                   <h4 className="text-lg font-bold text-slate-800">
@@ -106,7 +106,7 @@ export default function Resume() {
                 </div>
                 <span className="text-slate-600 whitespace-nowrap">Dec 2027</span>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </section>
 
@@ -119,7 +119,7 @@ export default function Resume() {
 
           <div className="space-y-6">
             {/* Shopify */}
-            <div>
+            <ScrollReveal>
               <div className="flex justify-between items-start mb-2">
                 <div>
                   <h4 className="text-lg font-bold text-slate-800">Software Engineering Intern</h4>
@@ -133,10 +133,10 @@ export default function Resume() {
                 <li>Working on Growth R&D initiatives focused on customer experience</li>
                 <li>Contributing to projects impacting millions of merchants and customers</li>
               </ul>
-            </div>
+            </ScrollReveal>
 
             {/* URBN */}
-            <div>
+            <ScrollReveal delay={100}>
               <div className="flex justify-between items-start mb-2">
                 <div>
                   <h4 className="text-lg font-bold text-slate-800">
@@ -160,10 +160,10 @@ export default function Resume() {
                 </li>
                 <li>Contributed to production features using Vue, TypeScript, and JavaScript</li>
               </ul>
-            </div>
+            </ScrollReveal>
 
             {/* CBORD */}
-            <div>
+            <ScrollReveal delay={200}>
               <div className="flex justify-between items-start mb-2">
                 <div>
                   <h4 className="text-lg font-bold text-slate-800">
@@ -179,10 +179,10 @@ export default function Resume() {
                 <li>Updated SQL database structure to support photo upload functionalities</li>
                 <li>Modernized full-site logos, improving UX and accessibility</li>
               </ul>
-            </div>
+            </ScrollReveal>
 
             {/* Snap */}
-            <div>
+            <ScrollReveal delay={300}>
               <div className="flex justify-between items-start mb-2">
                 <div>
                   <h4 className="text-lg font-bold text-slate-800">
@@ -197,7 +197,7 @@ export default function Resume() {
                 <li>Designed immersive AR experiences using 2D/3D assets</li>
                 <li>Gained hands-on experience with AR design and development</li>
               </ul>
-            </div>
+            </ScrollReveal>
           </div>
         </section>
 
@@ -208,7 +208,7 @@ export default function Resume() {
             Notable Projects
           </h3>
           <div className="space-y-3">
-            <div>
+            <ScrollReveal>
               <h4 className="font-bold text-slate-800">
                 Machine Learning-Based Brain Tumor Detection
               </h4>
@@ -220,8 +220,8 @@ export default function Resume() {
               <p className="text-sm text-slate-500 mt-1">
                 Tech: Python, TensorFlow, CNN, SVM, Random Forest, VGG-16
               </p>
-            </div>
-            <div>
+            </ScrollReveal>
+            <ScrollReveal delay={100}>
               <h4 className="font-bold text-slate-800">
                 Automotive LIDAR Vertically Integrated Project
               </h4>
@@ -232,8 +232,8 @@ export default function Resume() {
               <p className="text-sm text-slate-500 mt-1">
                 Tech: Python, ROS, LiDAR, Computer Vision, Hyperspectral Imaging
               </p>
-            </div>
-            <div>
+            </ScrollReveal>
+            <ScrollReveal delay={200}>
               <h4 className="font-bold text-slate-800">Dungeon Crawler Simulation</h4>
               <p className="text-slate-600">
                 Led team of 5 devs to develop fully functional 2D Dungeon Crawler game in Android
@@ -242,7 +242,7 @@ export default function Resume() {
               <p className="text-sm text-slate-500 mt-1">
                 Tech: Java, Android Studio, JUnit, Git, Agile/Scrum
               </p>
-            </div>
+            </ScrollReveal>
           </div>
         </section>
 
@@ -276,24 +276,27 @@ export default function Resume() {
             </div>
           </div>
         </section>
-      </div>
+        </FloatingCard>
+      </ScrollReveal>
 
       {/* Download CTA */}
-      <div className="mt-12 text-center">
-        <button
-          onClick={handleDownload}
-          className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium hover:from-blue-700 hover:to-purple-700 transition-all hover:shadow-lg inline-flex items-center gap-2"
-        >
-          <span>📥</span>
-          Download Full Resume as PDF
-        </button>
-        <p className="text-slate-500 mt-4 text-sm">
-          Want to get in touch?{' '}
-          <a href="mailto:vrjkothari22@gmail.com" className="text-blue-600 hover:underline">
-            Send me an email
-          </a>
-        </p>
-      </div>
+      <ScrollReveal delay={150}>
+        <FloatingCard className="mt-12 text-center">
+          <button
+            onClick={handleDownload}
+            className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium hover:from-blue-700 hover:to-purple-700 transition-all hover:shadow-lg inline-flex items-center gap-2"
+          >
+            <span>📥</span>
+            Download Full Resume as PDF
+          </button>
+          <p className="text-slate-500 mt-4 text-sm">
+            Want to get in touch?{' '}
+            <a href="mailto:vrjkothari22@gmail.com" className="text-blue-600 hover:underline">
+              Send me an email
+            </a>
+          </p>
+        </FloatingCard>
+      </ScrollReveal>
     </div>
   );
 }
