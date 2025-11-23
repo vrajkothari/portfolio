@@ -5,8 +5,8 @@
   "scripts": {
     "build": "remix build",
     "dev": "tsx ./server.ts",
+    "start": "remix-serve build",
     "lint": "eslint . --max-warnings 0",
-    "start": "NODE_ENV=production tsx ./server.ts",
     "typecheck": "tsc"
   },
   "dependencies": {
